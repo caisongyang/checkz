@@ -24,5 +24,16 @@ public class user {
         this.userName = userName;
     }
 
-    public
+    public void addUserCard(Card addCard){
+        this.sp.put(addCard.getCardId(),addCard);
+    }
+
+    public void delUserCard(String cardId){
+        this.sp.remove(cardId);
+    }
+
+    public String userShow(){
+
+      return "";
+    }
 }

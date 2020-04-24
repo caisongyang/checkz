@@ -1,7 +1,9 @@
 package cardTable;
 
 public class Table {
-    private
+    private String tableId;
+    private String tableName;
+    private String tableStuts;
 
 
 }
