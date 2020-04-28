@@ -41,12 +41,12 @@ public class Card {
         this.cardYollow = cardYollow;
     }
 
-    public Card newCard(Map<String,String> valMap){
+    public Card newCard(String cardId,String cardNum,String cardName,String cardYollow){
         Card thiscard  = new Card();
-        thiscard.cardId = valMap.get("cardId");
-        thiscard.cardNum = valMap.get("cardNum");
-        thiscard.cardName = valMap.get("cardName");
-        thiscard.cardYollow = valMap.get("cardYollow");
+        thiscard.cardId = cardId;
+        thiscard.cardNum = cardNum;
+        thiscard.cardName = cardName;
+        thiscard.cardYollow = cardYollow;
         return thiscard;
     }
 
