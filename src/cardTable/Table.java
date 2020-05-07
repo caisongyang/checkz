@@ -50,7 +50,42 @@ public class Table {
         u1.userShow();
         u2.userShow();
         u3.userShow();
+
+        int frist = (new Random()).nextInt(3);
+        System.out.println("第"+frist+"首先开始");
+        if(frist == 0){
+
+        }else if(frist == 1){
+
+        }else if(frist == 2){
+
+        }
     }
+
+    public void gameRun(String fristCardNum,String userName){
+        boolean gameStatus = true;
+        while (gameStatus){
+            talCard = fristCardNum;
+            usecheckNext(userName);
+
+
+
+       }
+
+    }
+
+    public user usecheckNext(String userName){
+        if("u1".equals(userName)){
+            return u2;
+        }else if("u2".equals(userName)){
+            return u3;
+        }else if("u3".equals(userName)){
+            return u1;
+        }else{
+            return u1;
+        }
+    }
+
 
 
     public void cardInit(){

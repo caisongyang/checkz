@@ -1,8 +1,9 @@
 package cardTable;
 
-import java.sql.SQLOutput;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class user {
 
@@ -66,22 +67,27 @@ public class user {
     }
 
 
+    public String userCard(){
+
+        return  "";
+    }
+
     public String AidocCard(String tableCard){
         if("".equals(tableCard)){
-
+            return "";
         }else if(tableCard.split("@")[0].equals("dan")){
-
+            return Aiuser(tableCard,"dan");
         }else if(tableCard.split("@")[0].equals("dui")){
-
+            return Aiuser(tableCard,"dui");
         }else if(tableCard.split("@")[0].equals("san")){
-
+            return "";
         }else if(tableCard.split("@")[0].equals("lian")){
-
+            return "";
         }else if(tableCard.split("@")[0].equals("shun")){
-
+            return "";
+        }else{
+            return "";
         }
-
-        return "";
     }
 
     public String Aiuser(String tableCard,String type){
@@ -89,7 +95,7 @@ public class user {
         if("dan".equals(type)){
             retCard = checkCardDan(tableCard);
         }else if("dui".equals(type)){
-
+            retCard = checkCardDui(tableCard);
         }
         return retCard;
     }
@@ -117,16 +123,16 @@ public class user {
         String minCard = "100";
         String minCardDui = "100";
         for(String key:cMap.keySet()){
-           if(cMap.get(key).indexOf("@")==-1){
-               cardA = true;
-               if(Integer.parseInt(minCard)>Integer.parseInt(cMap.get(key))){
-                   minCard = cMap.get(key);
-               }
-           }else{
-               if(Integer.parseInt(minCardDui)>Integer.parseInt(cMap.get(key).split("@")[0])){
-                   minCardDui = cMap.get(key).split("@")[0];
-               }
-           }
+            if(cMap.get(key).indexOf("@")==-1){
+                cardA = true;
+                if(Integer.parseInt(minCard)>Integer.parseInt(cMap.get(key))){
+                    minCard = cMap.get(key);
+                }
+            }else{
+                if(Integer.parseInt(minCardDui)>Integer.parseInt(cMap.get(key).split("@")[0])){
+                    minCardDui = cMap.get(key).split("@")[0];
+                }
+            }
         }
         if(cardA){
             return minCard;
@@ -162,8 +168,11 @@ public class user {
                 }
             }
         }
-
-        return "";
+        if("100".equals(minCardDui)){
+            return "No";
+        }else{
+            return minCardDui;
+        }
     }
 
 }
