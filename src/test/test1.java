@@ -8,8 +8,7 @@ import java.util.Map;
 public class test1 {
 
     public static void main(String[] args) {
-
         Table table = new Table();
-        table.tableInit();
+        table.gomeStart();
     }
 }
