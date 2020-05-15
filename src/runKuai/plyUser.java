@@ -51,7 +51,7 @@ public class plyUser {
         if(CardNum.indexOf("@")==-1){
             ret =  doCardDan(CardNum);
         }else{
-            ret = "";
+            ret = doCardDui(CardNum);
         }
         if(!"".equals(ret)){
             doCard(ret);
@@ -67,6 +67,43 @@ public class plyUser {
         }
     }*/
 
+    public String doCardDui(String cardNum){
+        String ret = "";
+        List<String> numList =new  ArrayList<String>();
+        for(int i =0;i<spList.size();i++){
+            int numIndex = 0;
+             for(int k = 0;k<spList.size();k++){
+                 if(spList.get(i).equals(spList.get(k))){
+                     numIndex ++;
+                 }
+             }
+             if(numIndex>=2){
+                 numList.add(spList.get(i));
+             }
+        }
+        if(numList.size()!=0){
+            String minNum = "";
+            for(int i = 0;i<numList.size();i++){
+                if (cardNumChange(numList.get(i))>cardNumChange(cardNum.split("@")[0])) {
+                    if("".equals(minNum)){
+                        minNum = numList.get(i);
+                    }else{
+                        if(cardNumChange(minNum)>cardNumChange(numList.get(i))){
+                            minNum = numList.get(i);
+                        }
+                    }
+                }
+            }
+
+            if("".equals(minNum)){
+                ret = "";
+            }else{
+                ret = minNum+"@"+minNum;
+            }
+        }
+        return  ret;
+    }
+
     public String doCardFrst(){
         System.out.println(this.userName+" ÊÇfrst£¬spÎª"+this.spList.toString());
         List<String> cardList = spList;
@@ -78,8 +115,8 @@ public class plyUser {
                 }
             }
         if(cardIndex>1){
-           // return minCard+"@"+minCard;
-            return minCard;
+            return minCard+"@"+minCard;
+            //return minCard;
         }else{
             return minCard;
         }
@@ -220,4 +257,6 @@ public class plyUser {
     public void setPlyStatus(String plyStatus) {
         this.plyStatus = plyStatus;
     }
+
+
 }
